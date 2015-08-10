@@ -1,0 +1,17 @@
+{
+    "name": "roelvanduijnhoven/image-cover",
+    "description": "Compute visible part of source image when covered",
+    "authors": [
+        {
+            "name": "Roel van Duijnhoven",
+            "email": "roel.duijnhoven@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-0": { "": "src/" }
+    },
+    "minimum-stability": "dev",
+    "require": {
+      "phpunit/phpunit": "4.*"
+    }
+}
