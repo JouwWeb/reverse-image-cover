@@ -4,16 +4,41 @@ namespace ImageCover;
 
 class BackgroundCoverViewport
 {
-  protected $viewportWidth, $viewportHeight;
+  protected $width, $height;
+  protected $positionX, $positionY;
 
-  public function __construct($viewportWidth, $viewportHeight)
+  public function __construct($width, $height, $positionX, $positionY)
   {
-    $this->viewportWidth = $viewportWidth;
-    $this->viewportHeight = $viewportHeight;
+    $this->width = $width;
+    $this->height = $height;
+    $this->positionX = $positionX;
+    $this->positionY = $positionY;
   }
 
-  public function computeUsedCrop($imageX, $imageY)
+  public function computeUsedCrop($imageWidth, $imageHeight)
   {
-    return [0, 0, $imageX, $imageY]; // TODO improve
+    // Scale image so shortest side fits exactly
+    $scale = max(
+      $this->width / $imageWidth,
+      $this->height / $imageHeight
+    );
+
+    $resizedImageWidth = $imageWidth * $scale;
+    $resizedImageHeight = $imageHeight * $scale;
+
+    // Position scaled image on correct position
+    $resizedStartX = $resizedImageWidth * $this->positionX - $this->width * $this->positionX;
+    $resizedStartY = $resizedImageHeight * $this->positionY - $this->height * $this->positionY;
+
+    $resizedStartX = min($resizedImageWidth - $this->width, max(0, $resizedStartX));
+    $resizedStartY = min($resizedImageHeight - $this->height, max(0, $resizedStartY));
+
+    // Compute back to real image coordinates
+    return [
+      round($resizedStartX / $scale),
+      round($resizedStartY / $scale),
+      round($this->width / $scale),
+      round($this->height / $scale)
+    ];
   }
 }

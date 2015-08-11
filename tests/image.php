@@ -31,7 +31,7 @@ function image_gradientrect($img,$x,$y,$x1,$y1,$start,$end) {
 
 $im = imagecreate($_GET['width'], $_GET['height']);
 
-$white = imagecolorallocate($im, 255, 255, 255);
+$bg = imagecolorallocate($im, 150, 150, 150);
 $black = imagecolorallocate($im, 0, 0, 0);
 
 image_gradientrect($im, 0,0, $_GET['width'], $_GET['height'], 'FF0000', '0000FF');
