@@ -1,5 +1,7 @@
 <?php
 
+namespace ImageCover;
+
 class BackgroundCoverViewport
 {
   protected $viewportWidth, $viewportHeight;

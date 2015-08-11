@@ -1,32 +1,38 @@
 <?php
 
-class BackgroundCoverViewportTest extends PHPUnit_Framework_TestCase
+namespace ImageCoverTest;
+
+class BackgroundCoverViewportTest extends \PHPUnit_Framework_TestCase
 {
-  public function testFitsExactly()
+  /**
+   *@dataProvider cases
+   */
+  public function testCase($identifier, $viewport, $image, $expected)
   {
-    $viewport = new BackgroundCoverViewport(500, 200);
-    $result = $viewport->computeUsedCrop(500, 200);
-    $this->assertEquals([0, 0, 500, 200], $result);
+    $viewport = new \ImageCover\BackgroundCoverViewport(
+      $viewport[0],
+      $viewport[1],
+      isset($viewport[2]) ? $viewport[2] : null,
+      isset($viewport[3]) ? $viewport[3] : null
+    );
+
+    $result = $viewport->computeUsedCrop($image[0], $image[1]);
+
+    $this->assertEquals(
+      "({$expected[0]}, {$expected[1]})",
+      "({$result[0]}, {$result[1]})",
+      "[{$identifier}] position does not match"
+    );
+
+    $this->assertEquals(
+      "({$expected[2]} x {$expected[3]})",
+      "({$result[2]} x {$result[3]})",
+      "[{$identifier}] size does not match"
+    );
   }
 
-  public function testFitsExactlyLarger()
+  public function cases()
   {
-    $viewport = new BackgroundCoverViewport(500, 200);
-    $result = $viewport->computeUsedCrop(1000, 400);
-    $this->assertEquals([0, 0, 1000, 400], $result);
-  }
-
-  public function testFitsExactlySmaller()
-  {
-    $viewport = new BackgroundCoverViewport(500, 200);
-    $result = $viewport->computeUsedCrop(250, 100);
-    $this->assertEquals([0, 0, 250, 100], $result);
-  }
-
-  public function testTranslationOnly()
-  {
-    $viewport = new BackgroundCoverViewport(500, 200, 1, 0);
-    $result = $viewport->computeUsedCrop(200, 200);
-    $this->assertEquals([300, 0, 200, 200], $result);
+    return require 'Fixture.php';
   }
 }
