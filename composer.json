@@ -1,5 +1,5 @@
 {
-    "name": "roelvanduijnhoven/image-cover",
+    "name": "roelvanduijnhoven/reverse-image-cover",
     "description": "Compute visible part of source image when covered in viewport",
     "authors": [
         {
