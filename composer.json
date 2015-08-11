@@ -1,6 +1,6 @@
 {
     "name": "roelvanduijnhoven/image-cover",
-    "description": "Compute visible part of source image when covered",
+    "description": "Compute visible part of source image when covered in viewport",
     "authors": [
         {
             "name": "Roel van Duijnhoven",
