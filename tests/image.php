@@ -46,6 +46,14 @@ for ($i = 0; $i <= $_GET['height']; $i += 100) {
   imageline($im, 0, $i, $_GET['width'], $i, $black);
 }
 
+for ($y = 0; $y <= $_GET['height']; $y += 100) {
+  for ($x = 0; $x <= $_GET['width']; $x += 100) {
+    $i = $y / 100;
+    $j = $x / 100;
+    imagestring($im, 3, $x + 6, $y + 2, "{$i}, {$j}", $textcolor);
+  }
+}
+
 if (isset($_GET['crop'])) {
   list($cropX, $cropY, $cropWidth, $cropHeight) = explode(',', $_GET['crop']);
   $im = imagecrop($im, ['x' => $cropX, 'y' => $cropY, 'width' => $cropWidth, 'height' => $cropHeight]);
