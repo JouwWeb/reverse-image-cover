@@ -1,5 +1,8 @@
 {
     "name": "roelvanduijnhoven/reverse-image-cover",
+    "version": "0.1.0",
+    "type": "library",
+    "license": "MIT",
     "description": "Compute visible part of source image when covered in viewport",
     "authors": [
         {
@@ -15,6 +18,9 @@
     },
     "minimum-stability": "dev",
     "require": {
+      "php":    ">=5.4",
+    },
+    "require-dev": {
       "phpunit/phpunit": "4.*"
     }
 }
