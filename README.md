@@ -24,3 +24,15 @@ $crop = $viewport->computeUsedCrop(
 echo "Visible part of image starts at({$crop[0]}, {$crop[1]}) ";
 echo "and has a dimension of {$crop[2]} x {$crop[3]}";
 ```
+
+## Tests
+
+Tests can be ran by:
+
+1. `composer install`
+2. `vendor/bin/phpunit`
+
+The test suite can be visualized as follows:
+
+1. Run server `php -S localhost:8080`
+2. Visit http://localhost:8080/tests/demo.php`
