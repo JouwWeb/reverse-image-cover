@@ -37,8 +37,8 @@ class BackgroundCoverViewport
     return [
       abs(round($resizedStartX / $scale)),
       abs(round($resizedStartY / $scale)),
-      abs(round($this->width / $scale),
-      abs(round($this->height / $scale)
+      round($this->width / $scale),
+      round($this->height / $scale)
     ];
   }
 }
