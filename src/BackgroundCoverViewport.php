@@ -35,10 +35,10 @@ class BackgroundCoverViewport
 
     // Compute back to real image coordinates
     return [
-      round($resizedStartX / $scale),
-      round($resizedStartY / $scale),
-      round($this->width / $scale),
-      round($this->height / $scale)
+      abs(round($resizedStartX / $scale)),
+      abs(round($resizedStartY / $scale)),
+      abs(round($this->width / $scale),
+      abs(round($this->height / $scale)
     ];
   }
 }
