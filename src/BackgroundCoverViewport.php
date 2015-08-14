@@ -17,6 +17,10 @@ class BackgroundCoverViewport
 
   public function computeUsedCrop($imageWidth, $imageHeight)
   {
+    if ($imageWidth === 0 || $imageHeight === 0) {
+      return [0, 0, 0, 0];
+    }
+
     // Scale image so shortest side fits exactly
     $scale = max(
       $this->width / $imageWidth,
