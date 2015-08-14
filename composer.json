@@ -1,6 +1,6 @@
 {
     "name": "roelvanduijnhoven/reverse-image-cover",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "type": "library",
     "license": "MIT",
     "description": "Compute visible part of source image when covered in viewport",
