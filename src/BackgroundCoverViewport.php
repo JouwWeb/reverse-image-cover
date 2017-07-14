@@ -9,15 +9,18 @@ class BackgroundCoverViewport
 
   public function __construct($width, $height, $positionX, $positionY)
   {
-    $this->width = $width;
-    $this->height = $height;
-    $this->positionX = $positionX;
-    $this->positionY = $positionY;
+    $this->width = (double)$width;
+    $this->height = (double)$height;
+    $this->positionX = (double)$positionX;
+    $this->positionY = (double)$positionY;
   }
 
   public function computeUsedCrop($imageWidth, $imageHeight)
   {
-    if ($imageWidth === 0 || $imageHeight === 0) {
+    $imageWidth = (double)$imageWidth;
+    $imageHeight = (double)$imageHeight;
+
+    if ($imageWidth === 0.0 || $imageHeight === 0.0) {
       return [0, 0, 0, 0];
     }
 
@@ -41,8 +44,8 @@ class BackgroundCoverViewport
     return [
       abs(round($resizedStartX / $scale)),
       abs(round($resizedStartY / $scale)),
-      round($this->width / $scale),
-      round($this->height / $scale)
+      ceil($this->width / $scale),
+      ceil($this->height / $scale)
     ];
   }
 }

@@ -12,4 +12,5 @@ return [
   ['translationYOnlyVerySmallImage', [100, 100, 0.5, 0], [4, 16], [0, 0, 4, 4]],
   ['translationNearBorder', [200, 200, 0.9, 0.5], [600, 400], [180, 0, 400, 400]],
   ['emptyImage', [200, 200, 0.9, 0.5], [0, 0], [0, 0, 0, 0]],
+  ['issueWithSmallImage', [960, 77], [1, 1], [0, 0, 1, 1]],
 ];
