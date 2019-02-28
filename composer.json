@@ -1,5 +1,5 @@
 {
-    "name": "roelvanduijnhoven/reverse-image-cover",
+    "name": "jouwweb/reverse-image-cover",
     "type": "library",
     "license": "MIT",
     "description": "Compute visible part of source image when covered in viewport",
