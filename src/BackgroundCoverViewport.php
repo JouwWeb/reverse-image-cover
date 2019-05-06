@@ -20,7 +20,7 @@ class BackgroundCoverViewport
     $imageWidth = (double)$imageWidth;
     $imageHeight = (double)$imageHeight;
 
-    if ($imageWidth === 0.0 || $imageHeight === 0.0) {
+    if ($imageWidth === 0.0 || $imageHeight === 0.0 || $this->width === 0.0 || $this->height === 0.0) {
       return [0, 0, 0, 0];
     }
 
